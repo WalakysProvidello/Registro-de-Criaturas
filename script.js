@@ -79,7 +79,7 @@ document.body.classList.add(`threat-level-${currentThreatLevel}`);
 
 
 // --- Efeito de Assinatura Mágica ---
-const registrantName = "Mago Obscuro Arcanius"; // Nome fixo ou pode vir de um input futuramente
+const registrantName = "Departamento de Criatuas"; // Nome fixo ou pode vir de um input futuramente
 const typingDelay = 100; // ms por caractere
 const eraseDelay = 50; // ms por caractere ao apagar
 const waitDelay = 2000; // ms antes de apagar/digitar novamente
