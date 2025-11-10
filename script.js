@@ -19,7 +19,7 @@ const successSound = document.getElementById('successSound');
 
 
 // **ATENÇÃO:** Mantenha a URL do seu Script do Google Apps aqui
-const scriptURL = "https://script.google.com/macros/s/AKfycbwkGQ6YFcO2IBR00pHsG1Lsho6Aaxck7mz2RZZZIQkUG4xqK64_A0poubvMt5gIYmC/exec"; 
+const scriptURL = "https://script.google.com/macros/s/AKfycbyKuuqroO_zz68o7BPW2ZnI54Uwb8TeEz5IwIIW-"; 
 
 // --- Funções de Ajuda ---
 
