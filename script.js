@@ -94,7 +94,7 @@ document.getElementById('salvar').addEventListener('click', async () => {
       <p><strong>Espécie:</strong> ${especie}</p>
       <p><strong>Sexo:</strong> ${sexo}</p>
       <p><strong>Tamanho:</strong> ${tamanho}</p>
-      <p class="italic text-yellow-400 mt-3 border-t border-yellow-700 pt-2">Registro autenticado pela Imperius. Um Mestre Mago validará o Arquivo em breve.</p>
+      <p class="italic text-cyan-400 mt-3 border-t border-cyan-700 pt-2">Registro autenticado pela Imperius. Um Mestre Mago validará o Arquivo em breve.</p>
     `;
     alert("✅ Registro enviado com sucesso ao Arquivo Imperius!");
 
