@@ -1,84 +1,84 @@
 @import url('https://fonts.googleapis.com/css2?family=MedievalSharp&family=Cinzel+Decorative:wght@400;700&display=swap');
 
-/* Fundo Aprimorado */
+/* Fundo Aprimorado com Cores Imperius */
 body {
-  background: radial-gradient(circle at center, #181105, #0a0601 90%);
-  background-image: url('https://www.transparenttextures.com/patterns/paper-fibers.png'); 
-  color: #fdf6e3;
+  background: radial-gradient(circle at center, #1a2a2a, #0d1a1a 90%); /* Tons de verde escuro e preto */
+  background-image: url('https://www.transparenttextures.com/patterns/dark-fish-skin.png'); /* Nova textura mais escura */
+  color: #e0f2f1; /* Cor de texto mais clara para contraste */
   font-family: 'Cinzel Decorative', serif;
 }
 
-/* Borda e Sombra do Título */
+/* Borda e Sombra do Título (adaptado para tons de ciano/prata) */
 .title-glow {
-  text-shadow: 0 0 18px #ffebc9, 0 0 40px #b89650;
+  text-shadow: 0 0 18px #a7f0f0, 0 0 40px #4d8f8f; /* Tons de ciano/verde-água para o brilho */
 }
 
-/* Contêiner de Pergaminho Aprimorado */
+/* Contêiner de Pergaminho Aprimorado com Cores Imperius */
 .parchment {
-  background: rgba(30, 24, 15, 0.95);
+  background: rgba(18, 30, 30, 0.95); /* Verde escuro com transparência */
   backdrop-filter: blur(5px);
-  border: 3px double #d4af37; /* Borda dupla dourada */
-  box-shadow: 0 0 50px rgba(255, 223, 150, 0.5), inset 0 0 20px rgba(0, 0, 0, 0.4); 
+  border: 3px double #4d8f8f; /* Borda dupla em verde-água escuro */
+  box-shadow: 0 0 50px rgba(77, 143, 143, 0.5), inset 0 0 20px rgba(0, 0, 0, 0.4); /* Sombra externa e interna */
 }
 
-/* Estilo de texto para campos e labels */
+/* Estilo de texto para campos e labels (adaptado) */
 label, #dadosSalvos p {
   font-family: 'MedievalSharp', cursive;
-  color: #ffefc9;
+  color: #b2dfdb; /* Verde ciano mais claro */
 }
 
-/* Estilo dos Inputs */
+/* Estilo dos Inputs (adaptado) */
 input[type="text"], input[type="number"], select {
-  background-color: rgba(10, 8, 4, 0.9);
-  border: 1px solid #d4af37;
-  color: #fdf6e3;
+  background-color: rgba(5, 10, 10, 0.9); /* Fundo mais escuro */
+  border: 1px solid #4d8f8f; /* Borda em verde-água escuro */
+  color: #e0f2f1;
   transition: border-color 0.3s, box-shadow 0.3s;
 }
 
 input:focus, select:focus {
-  border-color: #ffe082;
-  box-shadow: 0 0 8px rgba(255, 223, 150, 0.6);
+  border-color: #80cbc4; /* Verde ciano mais vibrante ao focar */
+  box-shadow: 0 0 8px rgba(77, 143, 143, 0.6);
 }
 
-/* Estilo do Botão de Envio */
+/* Estilo do Botão de Envio (adaptado para tons de verde/ciano) */
 .register-button {
-  background: linear-gradient(180deg, #d4af37, #b89650);
-  box-shadow: 0 5px 0 #8b6e3f;
+  background: linear-gradient(180deg, #4d8f8f, #3a7a7a); /* Gradiente de verde-água */
+  box-shadow: 0 5px 0 #2a5a5a; /* Sombra mais escura */
   transition: all 0.1s ease;
   font-family: 'Cinzel Decorative', serif;
   font-weight: 700;
   letter-spacing: 1px;
-  color: #1a1a1a;
+  color: #e0f2f1; /* Texto mais claro */
 }
 
 .register-button:hover {
-  background: linear-gradient(180deg, #b89650, #d4af37);
-  box-shadow: 0 3px 0 #8b6e3f;
+  background: linear-gradient(180deg, #3a7a7a, #4d8f8f);
+  box-shadow: 0 3px 0 #2a5a5a;
   transform: translateY(2px);
 }
 
-/* Linha Divisora Aprimorada */
+/* Linha Divisora Aprimorada (adaptada) */
 .arcane-divider {
   height: 2px;
-  background: linear-gradient(to right, rgba(0,0,0,0), #d4af37, rgba(0,0,0,0));
+  background: linear-gradient(to right, rgba(0,0,0,0), #4d8f8f, rgba(0,0,0,0)); /* Verde-água no centro */
   margin-top: 1.5rem;
   margin-bottom: 1.5rem;
-  box-shadow: 0 0 10px rgba(255, 223, 150, 0.4);
+  box-shadow: 0 0 10px rgba(77, 143, 143, 0.4);
 }
 
-/* Detalhe do Preview da Imagem */
+/* Detalhe do Preview da Imagem (adaptado) */
 .image-preview-ring {
-  border: 3px dashed #d4af37;
+  border: 3px dashed #4d8f8f; /* Verde-água escuro */
   padding: 4px;
-  background: rgba(40, 32, 18, 0.7);
+  background: rgba(18, 30, 30, 0.7); /* Fundo verde escuro */
 }
 
-/* Animação de Carregamento */
+/* Animação de Carregamento (adaptada) */
 .loading-circle {
   width: 40px;
   height: 40px;
-  border: 4px solid #ffefc9;
-  border-top-color: #d4af37;
+  border: 4px solid #b2dfdb; /* Verde ciano mais claro */
+  border-top-color: #4d8f8f; /* Verde-água escuro */
   border-radius: 50%;
   animation: spin 1s linear infinite;
   margin: 0 auto;
