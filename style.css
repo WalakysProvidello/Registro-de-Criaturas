@@ -1,89 +1,423 @@
-@import url('https://fonts.googleapis.com/css2?family=MedievalSharp&family=Cinzel+Decorative:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=MedievalSharp&family=Spectral:wght@400;700&display=swap');
 
-/* Fundo Aprimorado com Cores Imperius */
+/* Variáveis de cores */
+:root {
+  --color-dark-black: #0a0a0a;
+  --color-deep-charcoal: #1a1a1a;
+  --color-gray-metal: #333333;
+  --color-dark-gray: #555555;
+  --color-emerald: #00a080;
+  --color-emerald-light: #33d6b2;
+  --color-emerald-dark: #00705a;
+  --color-purple-arcane: #5a2e7a;
+  --color-purple-arcane-light: #8e5cb3;
+  --color-red-rune: #900c3f; /* Para erros/letal */
+  --text-light: #e0e0e0;
+  --text-medium: #b0b0b0;
+  --text-dark: #808080;
+}
+
 body {
-  background: radial-gradient(circle at center, #1a2a2a, #0d1a1a 90%); /* Tons de verde escuro e preto */
-  background-image: url('https://www.transparenttextures.com/patterns/dark-fish-skin.png'); /* Nova textura mais escura */
-  color: #e0f2f1; /* Cor de texto mais clara para contraste */
+  background: radial-gradient(circle at center, var(--color-deep-charcoal) 0%, var(--color-dark-black) 100%);
+  background-image: url('https://www.transparenttextures.com/patterns/black-linen.png'); /* Textura de linho escuro */
+  color: var(--text-light);
+  font-family: 'Spectral', serif; /* Fonte principal para o corpo */
+  overflow: hidden; /* Para controlar as partículas de fundo */
+}
+
+/* Efeitos de fundo: Runas e Fumaça */
+.background-effects {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.rune {
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  background-image: url('https://i.imgur.com/example_rune.png'); /* Substituir por URL de runa real */
+  background-size: contain;
+  opacity: 0.05;
+  filter: drop-shadow(0 0 10px var(--color-emerald));
+  animation: pulse-rune 5s infinite alternate, rotate-rune 20s linear infinite;
+}
+
+.rune-top-left {
+  top: 5%;
+  left: 5%;
+  transform: rotate(20deg);
+}
+
+.rune-bottom-right {
+  bottom: 5%;
+  right: 5%;
+  transform: rotate(-30deg);
+}
+
+@keyframes pulse-rune {
+  0% { opacity: 0.05; transform: scale(1) rotate(20deg); }
+  50% { opacity: 0.1; transform: scale(1.05) rotate(25deg); }
+  100% { opacity: 0.05; transform: scale(1) rotate(20deg); }
+}
+
+@keyframes rotate-rune {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.smoke-particle {
+  position: absolute;
+  background: rgba(0, 100, 80, 0.1); /* Verde esmeralda transparente */
+  border-radius: 50%;
+  filter: blur(10px);
+  animation: float-smoke 15s infinite ease-in-out;
+}
+.smoke-particle.p1 { width: 100px; height: 100px; top: 10%; left: 10%; animation-duration: 18s; animation-delay: 0s; }
+.smoke-particle.p2 { width: 150px; height: 150px; top: 50%; right: 5%; animation-duration: 22s; animation-delay: 5s; }
+.smoke-particle.p3 { width: 80px; height: 80px; bottom: 15%; left: 20%; animation-duration: 16s; animation-delay: 10s; }
+
+@keyframes float-smoke {
+  0% { transform: translateY(0) scale(1); opacity: 0.1; }
+  50% { transform: translateY(-50px) scale(1.1); opacity: 0.2; }
+  100% { transform: translateY(0) scale(1); opacity: 0.1; }
+}
+
+
+/* Contêiner Principal de Pergaminho Queimado/Pedra Antiga */
+.parchment-dark {
+  background: rgba(10, 10, 10, 0.95); /* Quase preto, levemente translúcido */
+  backdrop-filter: blur(8px); /* Blur mais forte */
+  border: 2px solid var(--color-gray-metal); /* Borda metálica */
+  border-image: url('https://i.imgur.com/example_border.png') 30 stretch; /* Substituir por URL de borda de ferro/runas */
+  box-shadow: 0 0 60px rgba(0, 200, 160, 0.3), inset 0 0 25px rgba(0, 0, 0, 0.6); /* Brilho esmeralda exterior, sombra interior profunda */
+  padding: 2.5rem; /* Ajuste do padding */
+  position: relative; /* Para runas internas */
+  overflow: hidden; /* Para conter os elementos internos */
+}
+
+/* Brilho espectral para a logo */
+.spectral-glow {
+  filter: drop-shadow(0 0 15px var(--color-emerald-light)) drop-shadow(0 0 30px var(--color-purple-arcane));
+  animation: pulse-glow 3s infinite alternate;
+}
+
+@keyframes pulse-glow {
+  0% { filter: drop-shadow(0 0 15px var(--color-emerald-light)) drop-shadow(0 0 30px var(--color-purple-arcane)); }
+  50% { filter: drop-shadow(0 0 20px var(--color-emerald-light)) drop-shadow(0 0 40px var(--color-purple-arcane-light)); }
+  100% { filter: drop-shadow(0 0 15px var(--color-emerald-light)) drop-shadow(0 0 30px var(--color-purple-arcane)); }
+}
+
+
+/* Títulos e Subtítulos */
+.title-shadow-dark {
+  text-shadow: 0 0 10px var(--color-emerald-light), 0 0 20px var(--color-purple-arcane);
   font-family: 'Cinzel Decorative', serif;
+  color: var(--text-light);
 }
 
-/* Borda e Sombra do Título (adaptado para tons de ciano/prata) */
-.title-glow {
-  text-shadow: 0 0 18px #a7f0f0, 0 0 40px #4d8f8f; /* Tons de ciano/verde-água para o brilho */
+.division-subtitle {
+  font-family: 'Spectral', serif;
+  color: var(--text-dark);
+  letter-spacing: 1px;
 }
 
-/* Contêiner de Pergaminho Aprimorado com Cores Imperius */
-.parchment {
-  background: rgba(18, 30, 30, 0.95); /* Verde escuro com transparência */
-  backdrop-filter: blur(5px);
-  border: 3px double #4d8f8f; /* Borda dupla em verde-água escuro */
-  box-shadow: 0 0 50px rgba(77, 143, 143, 0.5), inset 0 0 20px rgba(0, 0, 0, 0.4); /* Sombra externa e interna */
+/* Linha Divisória Arcana */
+.arcane-divider-dark {
+  height: 3px;
+  background: linear-gradient(to right, rgba(0,0,0,0) 10%, var(--color-gray-metal), var(--color-emerald), var(--color-gray-metal), rgba(0,0,0,0) 90%);
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 0 15px rgba(0, 200, 160, 0.4);
+  position: relative;
+  overflow: hidden;
+}
+.arcane-divider-dark::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(45deg, transparent, transparent 5px, rgba(0,200,160,0.1) 5px, rgba(0,200,160,0.1) 10px);
+  animation: move-lines 15s linear infinite;
 }
 
-/* Estilo de texto para campos e labels (adaptado) */
-label, #dadosSalvos p {
-  font-family: 'MedievalSharp', cursive;
-  color: #b2dfdb; /* Verde ciano mais claro */
+@keyframes move-lines {
+  from { background-position: 0 0; }
+  to { background-position: 100% 100%; }
 }
 
-/* Estilo dos Inputs (adaptado) */
+
+/* Estilo dos campos e labels */
+label {
+  font-family: 'Spectral', serif;
+  color: var(--text-light);
+}
+
+.font-spectral-bold {
+    font-family: 'Spectral', serif;
+    font-weight: 700;
+}
+.font-cinzel-decorative {
+    font-family: 'Cinzel Decorative', serif;
+}
+
+/* Inputs */
 input[type="text"], input[type="number"], select {
-  background-color: rgba(5, 10, 10, 0.9); /* Fundo mais escuro */
-  border: 1px solid #4d8f8f; /* Borda em verde-água escuro */
-  color: #e0f2f1;
+  background-color: var(--color-deep-charcoal);
+  border: 1px solid var(--color-dark-gray);
+  color: var(--text-light);
   transition: border-color 0.3s, box-shadow 0.3s;
+  font-family: 'Spectral', serif;
+}
+
+input::placeholder { /* Cor para placeholders */
+  color: var(--text-dark);
 }
 
 input:focus, select:focus {
-  border-color: #80cbc4; /* Verde ciano mais vibrante ao focar */
-  box-shadow: 0 0 8px rgba(77, 143, 143, 0.6);
+  border-color: var(--color-emerald);
+  box-shadow: 0 0 10px rgba(0, 160, 128, 0.6), inset 0 0 5px rgba(0, 160, 128, 0.3);
+  outline: none;
 }
 
-/* Estilo do Botão de Envio (adaptado para tons de verde/ciano) */
-.register-button {
-  background: linear-gradient(180deg, #4d8f8f, #3a7a7a); /* Gradiente de verde-água */
-  box-shadow: 0 5px 0 #2a5a5a; /* Sombra mais escura */
-  transition: all 0.1s ease;
+/* Estilo para labels de upload (input[type="file"]) */
+input[type="file"] {
+  background: var(--color-gray-metal);
+  border: 1px solid var(--color-dark-gray);
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  color: var(--text-light);
+}
+
+input[type="file"]::file-selector-button {
+  background-color: var(--color-emerald-dark);
+  color: var(--text-light);
+  padding: 0.5rem 1rem;
+  border-radius: 0.375rem;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+input[type="file"]::file-selector-button:hover {
+  background-color: var(--color-emerald);
+}
+
+
+/* Molduras dos Retratos */
+.portrait-frame {
+  position: relative;
+  overflow: hidden;
+  border: 2px solid var(--color-dark-gray);
+  box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.7), 0 0 20px rgba(0, 200, 160, 0.1);
+}
+
+.portrait-frame::before {
+  content: '';
+  position: absolute;
+  top: -5px; bottom: -5px; left: -5px; right: -5px;
+  border: 2px solid transparent;
+  border-image: url('https://i.imgur.com/example_rune_frame.png') 30 stretch; /* Borda rúnica */
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.portrait-frame:hover::before {
+  animation: rune-pulse 2s infinite alternate;
+}
+
+@keyframes rune-pulse {
+  0% { opacity: 0.6; filter: drop-shadow(0 0 5px var(--color-emerald)); }
+  100% { opacity: 0.9; filter: drop-shadow(0 0 10px var(--color-emerald-light)); }
+}
+
+#previewPessoa, #previewCriatura {
+  background: rgba(0, 0, 0, 0.7);
+  border: 1px dashed var(--color-dark-gray);
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+#previewPessoa img, #previewCriatura img {
+    border: 1px solid var(--color-emerald-dark);
+    box-shadow: 0 0 10px rgba(0,200,160,0.3);
+}
+
+/* Ícones ao lado dos labels (ex: crânio, ampulheta) */
+.icon-skull::before { content: '💀'; margin-right: 8px; color: var(--color-dark-gray); }
+.icon-hourglass::before { content: '⏳'; margin-right: 8px; color: var(--color-dark-gray); }
+.icon-feather::before { content: '✒️'; margin-right: 8px; color: var(--color-dark-gray); }
+.icon-danger::before { content: '⚠️'; margin-right: 8px; color: var(--color-dark-gray); }
+.icon-magic::before { content: '✨'; margin-right: 8px; color: var(--color-dark-gray); }
+.icon-location::before { content: '📍'; margin-right: 8px; color: var(--color-dark-gray); }
+.icon-quill::before { content: '✍️'; margin-right: 8px; color: var(--color-dark-gray); }
+.icon-orb::before { content: '🔮'; margin-right: 8px; color: var(--color-dark-gray); }
+.icon-dragon::before { content: '🐉'; margin-right: 8px; color: var(--color-dark-gray); }
+
+
+/* Nível de Ameaça */
+#threatLevel {
+  background-color: var(--color-deep-charcoal);
+  border: 1px solid var(--color-dark-gray);
+  transition: box-shadow 0.5s ease-in-out;
+}
+
+.threat-option {
+  padding: 0.5rem 0.8rem;
+  border-radius: 0.3rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  user-select: none;
+}
+
+.threat-option:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--text-light);
+}
+
+/* Cores do Nível de Ameaça e Aura do Formulário */
+body.threat-level-baixo #threatLevel { box-shadow: 0 0 15px rgba(0, 100, 255, 0.4); } /* Azul suave */
+body.threat-level-controlado #threatLevel { box-shadow: 0 0 15px rgba(0, 160, 128, 0.4); } /* Verde esmeralda */
+body.threat-level-instavel #threatLevel { box-shadow: 0 0 15px rgba(255, 165, 0, 0.4); } /* Laranja */
+body.threat-level-letal #threatLevel { box-shadow: 0 0 15px rgba(144, 12, 63, 0.6); } /* Vermelho sangue */
+
+/* Destaque da opção ativa */
+.threat-option.active {
+  background-color: var(--color-emerald-dark);
+  color: var(--text-light);
+  font-weight: bold;
+  text-shadow: 0 0 5px var(--color-emerald-light);
+}
+
+/* Assinatura Mágica */
+#magicSignature {
+  position: relative;
+  overflow: hidden;
+  font-family: 'Spectral', cursive; /* Pode ser uma fonte específica para caligrafia se encontrar */
+  font-size: 1.5rem;
+  min-height: 80px; /* Aumentar a altura para a assinatura */
+  color: var(--color-emerald-light);
+  text-shadow: 0 0 8px rgba(0, 200, 160, 0.6);
+  border: 1px dashed var(--color-dark-gray);
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.signature-typing {
+  white-space: pre-wrap; /* Para respeitar quebras de linha e espaços */
+  overflow: hidden;
+  display: inline-block;
+  vertical-align: middle;
+  border-right: 2px solid var(--color-emerald-light); /* Cursor piscante */
+  animation: typing-cursor 0.75s step-end infinite;
+}
+
+@keyframes typing-cursor {
+  from, to { border-color: transparent }
+  50% { border-color: var(--color-emerald-light); }
+}
+
+/* Botão de Registro Sombrio */
+.register-button-dark {
+  background: linear-gradient(180deg, var(--color-emerald), var(--color-emerald-dark));
+  box-shadow: 0 6px 0 var(--color-purple-arcane), 0 0 20px rgba(0, 160, 128, 0.5);
+  transition: all 0.2s ease;
   font-family: 'Cinzel Decorative', serif;
   font-weight: 700;
-  letter-spacing: 1px;
-  color: #e0f2f1; /* Texto mais claro */
+  letter-spacing: 2px;
+  color: var(--text-light);
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
+  border: 1px solid var(--color-emerald-light);
+  position: relative;
+  overflow: hidden;
 }
 
-.register-button:hover {
-  background: linear-gradient(180deg, #3a7a7a, #4d8f8f);
-  box-shadow: 0 3px 0 #2a5a5a;
+.register-button-dark::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: all 0.5s ease;
+}
+
+.register-button-dark:hover::before {
+  left: 100%;
+}
+
+.register-button-dark:hover {
+  background: linear-gradient(180deg, var(--color-emerald-dark), var(--color-emerald));
+  box-shadow: 0 4px 0 var(--color-purple-arcane), 0 0 25px rgba(0, 160, 128, 0.7);
   transform: translateY(2px);
 }
 
-/* Linha Divisora Aprimorada (adaptada) */
-.arcane-divider {
-  height: 2px;
-  background: linear-gradient(to right, rgba(0,0,0,0), #4d8f8f, rgba(0,0,0,0)); /* Verde-água no centro */
-  margin-top: 1.5rem;
-  margin-bottom: 1.5rem;
-  box-shadow: 0 0 10px rgba(77, 143, 143, 0.4);
-}
-
-/* Detalhe do Preview da Imagem (adaptado) */
-.image-preview-ring {
-  border: 3px dashed #4d8f8f; /* Verde-água escuro */
-  padding: 4px;
-  background: rgba(18, 30, 30, 0.7); /* Fundo verde escuro */
-}
-
-/* Animação de Carregamento (adaptada) */
-.loading-circle {
-  width: 40px;
-  height: 40px;
-  border: 4px solid #b2dfdb; /* Verde ciano mais claro */
-  border-top-color: #4d8f8f; /* Verde-água escuro */
+/* Animação de Carregamento Sombria */
+.loading-circle-dark {
+  width: 50px;
+  height: 50px;
+  border: 5px solid var(--color-emerald-light);
+  border-top-color: transparent;
   border-radius: 50%;
-  animation: spin 1s linear infinite;
+  animation: spin-dark 1s linear infinite, glow-pulse 2s infinite alternate;
   margin: 0 auto;
 }
 
-@keyframes spin {
+@keyframes spin-dark {
   to { transform: rotate(360deg); }
+}
+
+@keyframes glow-pulse {
+  0% { box-shadow: 0 0 10px var(--color-emerald-light), 0 0 20px var(--color-purple-arcane); }
+  100% { box-shadow: 0 0 15px var(--color-emerald-light), 0 0 30px var(--color-purple-arcane-light); }
+}
+
+/* Resultado */
+#resultado {
+  border-top: 2px solid var(--color-gray-metal);
+}
+
+#dadosSalvos {
+  background-color: rgba(var(--color-emerald-dark), 0.1); /* Fundo verde translúcido */
+  border: 1px solid var(--color-emerald-dark);
+  box-shadow: 0 0 15px rgba(0, 160, 128, 0.3);
+}
+
+/* Mensagem de Erro Rúnica (Exemplo de estilo para um alert customizado, não o default alert) */
+.error-rune {
+    font-family: 'MedievalSharp', cursive;
+    color: var(--color-red-rune);
+    text-shadow: 0 0 8px var(--color-red-rune);
+    animation: pulse-red 1s infinite alternate;
+}
+@keyframes pulse-red {
+    0% { opacity: 1; }
+    100% { opacity: 0.7; }
+}
+
+/* Selo de sucesso (a ser animado via JS) */
+.success-seal {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    background-image: url('logo.png'); /* Sua logo como selo */
+    background-size: contain;
+    background-repeat: no-repeat;
+    opacity: 0;
+    filter: drop-shadow(0 0 20px var(--color-emerald));
+    animation: seal-appear 1.5s forwards ease-out;
+}
+
+@keyframes seal-appear {
+    0% { transform: translate(-50%, -50%) scale(0) rotate(0deg); opacity: 0; }
+    50% { transform: translate(-50%, -50%) scale(1.2) rotate(360deg); opacity: 1; }
+    100% { transform: translate(-50%, -50%) scale(1) rotate(720deg); opacity: 1; }
 }
