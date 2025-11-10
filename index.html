@@ -7,13 +7,13 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="style.css">
   <link rel="icon" href="logo.png" type="image/png">
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=MedievalSharp&family=Spectral:wght@400;700&display=swap" rel="stylesheet">
+  
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=MedievalSharp&family=Spectral:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body class="min-h-screen flex items-center justify-center p-8 overflow-hidden relative">
 
+  
   <div class="background-effects">
-    <div class="rune rune-top-left"></div>
-    <div class="rune rune-bottom-right"></div>
     <div class="smoke-particle p1"></div>
     <div class="smoke-particle p2"></div>
     <div class="smoke-particle p3"></div>
@@ -30,15 +30,16 @@
       <div class="arcane-divider-dark"></div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+        
         <div class="space-y-8">
           
-          <div class="p-5 border-2 border-gray-700 rounded-lg bg-black/40 shadow-inner-dark portrait-frame">
+          <div class="p-5 border-2 rounded-lg shadow-inner-dark portrait-frame">
             <label class="block text-2xl mb-3 text-gray-200 font-spectral-bold flex items-center"><span class="icon-orb mr-3"></span> Retrato do Registrante</label>
             <input type="file" id="fotoPessoa" accept="image/*" class="block w-full text-sm text-gray-300 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-gray-700 file:text-gray-100 hover:file:bg-gray-600 cursor-pointer portrait-input">
             <div id="previewPessoa" class="mt-4 flex justify-center h-48 w-full border border-gray-600 rounded-md bg-black/50 overflow-hidden"></div>
           </div>
 
-          <div class="p-5 border-2 border-gray-700 rounded-lg bg-black/40 shadow-inner-dark portrait-frame">
+          <div class="p-5 border-2 rounded-lg shadow-inner-dark portrait-frame">
             <label class="block text-2xl mb-3 text-gray-200 font-spectral-bold flex items-center"><span class="icon-dragon mr-3"></span> Retrato da Criatura</label>
             <input type="file" id="fotoCriatura" accept="image/*" class="block w-full text-sm text-gray-300 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-gray-700 file:text-gray-100 hover:file:bg-gray-600 cursor-pointer portrait-input">
             <div id="previewCriatura" class="mt-4 flex justify-center h-48 w-full border border-gray-600 rounded-md bg-black/50 overflow-hidden"></div>
@@ -61,6 +62,7 @@
             <input type="text" id="especie" placeholder="Ex: Metamorfóide" class="w-full p-3 rounded-lg bg-gray-900/60 border border-gray-700 focus:ring-2 ring-emerald-600 text-gray-100 placeholder-gray-500">
           </div>
           
+          
           <div class="form-group">
             <label class="block text-xl mb-2 text-gray-300 flex items-center"><span class="icon-danger mr-3"></span> Nível de Ameaça:</label>
             <div id="threatLevel" class="flex justify-between items-center text-lg text-gray-400 bg-gray-900/60 p-2 rounded-lg border border-gray-700">
@@ -71,16 +73,19 @@
             </div>
           </div>
 
+          
           <div class="form-group">
             <label class="block text-xl mb-1 text-gray-300 flex items-center"><span class="icon-magic mr-3"></span> Vínculo Arcano:</label>
             <input type="text" id="vinculoArcano" placeholder="Ex: Maldição, Necromancia, Transmutação" class="w-full p-3 rounded-lg bg-gray-900/60 border border-gray-700 focus:ring-2 ring-emerald-600 text-gray-100 placeholder-gray-500">
           </div>
 
+          
           <div class="form-group">
             <label class="block text-xl mb-1 text-gray-300 flex items-center"><span class="icon-location mr-3"></span> Última Manifestação Conhecida:</label>
             <input type="text" id="ultimaManifestacao" placeholder="Ex: Floresta Sombria, Setor Norte de Imperius" class="w-full p-3 rounded-lg bg-gray-900/60 border border-gray-700 focus:ring-2 ring-emerald-600 text-gray-100 placeholder-gray-500">
           </div>
 
+          
           <div class="form-group">
             <label class="block text-xl mb-1 text-gray-300 flex items-center"><span class="icon-quill mr-3"></span> Assinatura Mágica do Registrante:</label>
             <div id="magicSignature" class="w-full p-3 rounded-lg bg-gray-900/60 border border-gray-700 text-gray-100 font-spectral text-center min-h-[50px] flex items-center justify-center">
@@ -95,6 +100,7 @@
       </button>
     </form>
 
+    
     <div id="loading" class="hidden mt-8">
       <div class="loading-circle-dark"></div>
       <p class="mt-4 text-emerald-300 italic text-lg font-['MedievalSharp']">Enviando registro aos Arquivos Sombrios...</p>
@@ -106,7 +112,8 @@
     </div>
   </div>
 
-  <audio id="swooshSound" src="https://www.soundjay.com/misc/sounds/swoosh-01.mp3" preload="auto"></audio>
+  
+<audio id="swooshSound" src="https://www.soundjay.com/misc/sounds/swoosh-01.mp3" preload="auto"></audio>
   <audio id="errorSound" src="https://www.soundjay.com/misc/sounds/wrong-answer-01.mp3" preload="auto"></audio>
   <audio id="successSound" src="https://www.soundjay.com/misc/sounds/success-sound-effect.mp3" preload="auto"></audio>
 
