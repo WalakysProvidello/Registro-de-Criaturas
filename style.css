@@ -11,21 +11,22 @@
   --color-emerald-dark: #00705a;
   --color-purple-arcane: #5a2e7a;
   --color-purple-arcane-light: #8e5cb3;
-  --color-red-rune: #900c3f; /* Para erros/letal */
+  --color-red-rune: #900c3f; 
   --text-light: #e0e0e0;
   --text-medium: #b0b0b0;
   --text-dark: #808080;
+  --color-gold: #ffd700; /* Adicionado para sua logo */
 }
 
 body {
   background: radial-gradient(circle at center, var(--color-deep-charcoal) 0%, var(--color-dark-black) 100%);
-  background-image: url('https://www.transparenttextures.com/patterns/black-linen.png'); /* Textura de linho escuro */
+  background-image: url('https://www.transparenttextures.com/patterns/black-linen.png'); 
   color: var(--text-light);
-  font-family: 'Spectral', serif; /* Fonte principal para o corpo */
-  overflow: hidden; /* Para controlar as partículas de fundo */
+  font-family: 'Spectral', serif; 
+  overflow: hidden; 
 }
 
-/* Efeitos de fundo: Runas e Fumaça */
+/* Efeitos de fundo: Fumaça/Partículas */
 .background-effects {
   position: fixed;
   top: 0;
@@ -36,43 +37,10 @@ body {
   z-index: 0;
 }
 
-.rune {
-  position: absolute;
-  width: 150px;
-  height: 150px;
-  background-image: url('https://i.imgur.com/example_rune.png'); /* Substituir por URL de runa real */
-  background-size: contain;
-  opacity: 0.05;
-  filter: drop-shadow(0 0 10px var(--color-emerald));
-  animation: pulse-rune 5s infinite alternate, rotate-rune 20s linear infinite;
-}
-
-.rune-top-left {
-  top: 5%;
-  left: 5%;
-  transform: rotate(20deg);
-}
-
-.rune-bottom-right {
-  bottom: 5%;
-  right: 5%;
-  transform: rotate(-30deg);
-}
-
-@keyframes pulse-rune {
-  0% { opacity: 0.05; transform: scale(1) rotate(20deg); }
-  50% { opacity: 0.1; transform: scale(1.05) rotate(25deg); }
-  100% { opacity: 0.05; transform: scale(1) rotate(20deg); }
-}
-
-@keyframes rotate-rune {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
+/* Partículas de fumaça (mantidas, pois a imagem de fundo pode não ter movimento) */
 .smoke-particle {
   position: absolute;
-  background: rgba(0, 100, 80, 0.1); /* Verde esmeralda transparente */
+  background: rgba(0, 100, 80, 0.1); 
   border-radius: 50%;
   filter: blur(10px);
   animation: float-smoke 15s infinite ease-in-out;
@@ -90,26 +58,32 @@ body {
 
 /* Contêiner Principal de Pergaminho Queimado/Pedra Antiga */
 .parchment-dark {
-  background: rgba(10, 10, 10, 0.95); /* Quase preto, levemente translúcido */
-  backdrop-filter: blur(8px); /* Blur mais forte */
-  border: 2px solid var(--color-gray-metal); /* Borda metálica */
-  border-image: url('https://i.imgur.com/example_border.png') 30 stretch; /* Substituir por URL de borda de ferro/runas */
-  box-shadow: 0 0 60px rgba(0, 200, 160, 0.3), inset 0 0 25px rgba(0, 0, 0, 0.6); /* Brilho esmeralda exterior, sombra interior profunda */
-  padding: 2.5rem; /* Ajuste do padding */
-  position: relative; /* Para runas internas */
-  overflow: hidden; /* Para conter os elementos internos */
+  /* Substituir o background sólido pela sua imagem de fundo rúnica */
+  background-image: url('image_84d8fa.jpg'); /* USE ESTA IMAGEM COMO FUNDO */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  
+  /* Removemos o box-shadow da borda pois a imagem já tem borda */
+  background-color: rgba(10, 10, 10, 0.95); /* Cor de fallback e para inputs */
+  backdrop-filter: blur(5px);
+  border: none; /* Removemos a borda para deixar a borda da imagem dominar */
+  box-shadow: 0 0 60px rgba(0, 200, 160, 0.3); /* Mantém o brilho esmeralda exterior */
+  padding: 5rem 6rem; /* Aumentamos o padding para o conteúdo ficar dentro da moldura da imagem */
+  position: relative; 
+  overflow: hidden;
 }
 
-/* Brilho espectral para a logo */
+/* Brilho espectral para a logo (AGORA DOURADO) */
 .spectral-glow {
-  filter: drop-shadow(0 0 15px var(--color-emerald-light)) drop-shadow(0 0 30px var(--color-purple-arcane));
+  filter: drop-shadow(0 0 15px var(--color-gold)) drop-shadow(0 0 30px var(--color-purple-arcane));
   animation: pulse-glow 3s infinite alternate;
 }
 
 @keyframes pulse-glow {
-  0% { filter: drop-shadow(0 0 15px var(--color-emerald-light)) drop-shadow(0 0 30px var(--color-purple-arcane)); }
-  50% { filter: drop-shadow(0 0 20px var(--color-emerald-light)) drop-shadow(0 0 40px var(--color-purple-arcane-light)); }
-  100% { filter: drop-shadow(0 0 15px var(--color-emerald-light)) drop-shadow(0 0 30px var(--color-purple-arcane)); }
+  0% { filter: drop-shadow(0 0 15px var(--color-gold)) drop-shadow(0 0 30px var(--color-purple-arcane)); }
+  50% { filter: drop-shadow(0 0 20px #ffeb3b) drop-shadow(0 0 40px var(--color-purple-arcane-light)); }
+  100% { filter: drop-shadow(0 0 15px var(--color-gold)) drop-shadow(0 0 30px var(--color-purple-arcane)); }
 }
 
 
@@ -126,34 +100,16 @@ body {
   letter-spacing: 1px;
 }
 
-/* Linha Divisória Arcana */
+/* Linha Divisória Arcana - Simplificada para o tema escuro */
 .arcane-divider-dark {
   height: 3px;
   background: linear-gradient(to right, rgba(0,0,0,0) 10%, var(--color-gray-metal), var(--color-emerald), var(--color-gray-metal), rgba(0,0,0,0) 90%);
   margin-top: 2rem;
   margin-bottom: 2rem;
   box-shadow: 0 0 15px rgba(0, 200, 160, 0.4);
-  position: relative;
-  overflow: hidden;
-}
-.arcane-divider-dark::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background: repeating-linear-gradient(45deg, transparent, transparent 5px, rgba(0,200,160,0.1) 5px, rgba(0,200,160,0.1) 10px);
-  animation: move-lines 15s linear infinite;
 }
 
-@keyframes move-lines {
-  from { background-position: 0 0; }
-  to { background-position: 100% 100%; }
-}
-
-
-/* Estilo dos campos e labels */
+/* Estilo dos campos e labels (sem alterações) */
 label {
   font-family: 'Spectral', serif;
   color: var(--text-light);
@@ -176,7 +132,7 @@ input[type="text"], input[type="number"], select {
   font-family: 'Spectral', serif;
 }
 
-input::placeholder { /* Cor para placeholders */
+input::placeholder { 
   color: var(--text-dark);
 }
 
@@ -186,7 +142,7 @@ input:focus, select:focus {
   outline: none;
 }
 
-/* Estilo para labels de upload (input[type="file"]) */
+/* Upload Inputs (mantido) */
 input[type="file"] {
   background: var(--color-gray-metal);
   border: 1px solid var(--color-dark-gray);
@@ -210,45 +166,20 @@ input[type="file"]::file-selector-button:hover {
 }
 
 
-/* Molduras dos Retratos */
+/* Molduras dos Retratos (simplificado, já que a imagem tem a moldura) */
 .portrait-frame {
   position: relative;
-  overflow: hidden;
-  border: 2px solid var(--color-dark-gray);
-  box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.7), 0 0 20px rgba(0, 200, 160, 0.1);
+  background: rgba(0, 0, 0, 0.4); /* Fundo sutil */
+  border: 2px solid var(--color-emerald-dark); /* Borda esmeralda */
+  box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.7), 0 0 15px rgba(0, 200, 160, 0.2);
+  transition: box-shadow 0.3s;
 }
 
-.portrait-frame::before {
-  content: '';
-  position: absolute;
-  top: -5px; bottom: -5px; left: -5px; right: -5px;
-  border: 2px solid transparent;
-  border-image: url('https://i.imgur.com/example_rune_frame.png') 30 stretch; /* Borda rúnica */
-  opacity: 0.6;
-  pointer-events: none;
+.portrait-frame:hover {
+  box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.7), 0 0 25px rgba(0, 200, 160, 0.4);
 }
 
-.portrait-frame:hover::before {
-  animation: rune-pulse 2s infinite alternate;
-}
-
-@keyframes rune-pulse {
-  0% { opacity: 0.6; filter: drop-shadow(0 0 5px var(--color-emerald)); }
-  100% { opacity: 0.9; filter: drop-shadow(0 0 10px var(--color-emerald-light)); }
-}
-
-#previewPessoa, #previewCriatura {
-  background: rgba(0, 0, 0, 0.7);
-  border: 1px dashed var(--color-dark-gray);
-  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
-}
-
-#previewPessoa img, #previewCriatura img {
-    border: 1px solid var(--color-emerald-dark);
-    box-shadow: 0 0 10px rgba(0,200,160,0.3);
-}
-
-/* Ícones ao lado dos labels (ex: crânio, ampulheta) */
+/* Ícones ao lado dos labels (mantido) */
 .icon-skull::before { content: '💀'; margin-right: 8px; color: var(--color-dark-gray); }
 .icon-hourglass::before { content: '⏳'; margin-right: 8px; color: var(--color-dark-gray); }
 .icon-feather::before { content: '✒️'; margin-right: 8px; color: var(--color-dark-gray); }
@@ -260,7 +191,7 @@ input[type="file"]::file-selector-button:hover {
 .icon-dragon::before { content: '🐉'; margin-right: 8px; color: var(--color-dark-gray); }
 
 
-/* Nível de Ameaça */
+/* Nível de Ameaça (mantido) */
 #threatLevel {
   background-color: var(--color-deep-charcoal);
   border: 1px solid var(--color-dark-gray);
@@ -280,13 +211,12 @@ input[type="file"]::file-selector-button:hover {
   color: var(--text-light);
 }
 
-/* Cores do Nível de Ameaça e Aura do Formulário */
-body.threat-level-baixo #threatLevel { box-shadow: 0 0 15px rgba(0, 100, 255, 0.4); } /* Azul suave */
-body.threat-level-controlado #threatLevel { box-shadow: 0 0 15px rgba(0, 160, 128, 0.4); } /* Verde esmeralda */
-body.threat-level-instavel #threatLevel { box-shadow: 0 0 15px rgba(255, 165, 0, 0.4); } /* Laranja */
-body.threat-level-letal #threatLevel { box-shadow: 0 0 15px rgba(144, 12, 63, 0.6); } /* Vermelho sangue */
+/* Cores do Nível de Ameaça e Aura do Formulário (mantido) */
+body.threat-level-baixo #threatLevel { box-shadow: 0 0 15px rgba(0, 100, 255, 0.4); } 
+body.threat-level-controlado #threatLevel { box-shadow: 0 0 15px rgba(0, 160, 128, 0.4); } 
+body.threat-level-instavel #threatLevel { box-shadow: 0 0 15px rgba(255, 165, 0, 0.4); } 
+body.threat-level-letal #threatLevel { box-shadow: 0 0 15px rgba(144, 12, 63, 0.6); } 
 
-/* Destaque da opção ativa */
 .threat-option.active {
   background-color: var(--color-emerald-dark);
   color: var(--text-light);
@@ -294,13 +224,13 @@ body.threat-level-letal #threatLevel { box-shadow: 0 0 15px rgba(144, 12, 63, 0.
   text-shadow: 0 0 5px var(--color-emerald-light);
 }
 
-/* Assinatura Mágica */
+/* Assinatura Mágica (mantido) */
 #magicSignature {
   position: relative;
   overflow: hidden;
-  font-family: 'Spectral', cursive; /* Pode ser uma fonte específica para caligrafia se encontrar */
+  font-family: 'Spectral', cursive; 
   font-size: 1.5rem;
-  min-height: 80px; /* Aumentar a altura para a assinatura */
+  min-height: 80px; 
   color: var(--color-emerald-light);
   text-shadow: 0 0 8px rgba(0, 200, 160, 0.6);
   border: 1px dashed var(--color-dark-gray);
@@ -308,11 +238,11 @@ body.threat-level-letal #threatLevel { box-shadow: 0 0 15px rgba(144, 12, 63, 0.
 }
 
 .signature-typing {
-  white-space: pre-wrap; /* Para respeitar quebras de linha e espaços */
+  white-space: pre-wrap; 
   overflow: hidden;
   display: inline-block;
   vertical-align: middle;
-  border-right: 2px solid var(--color-emerald-light); /* Cursor piscante */
+  border-right: 2px solid var(--color-emerald-light); 
   animation: typing-cursor 0.75s step-end infinite;
 }
 
@@ -321,7 +251,7 @@ body.threat-level-letal #threatLevel { box-shadow: 0 0 15px rgba(144, 12, 63, 0.
   50% { border-color: var(--color-emerald-light); }
 }
 
-/* Botão de Registro Sombrio */
+/* Botão de Registro Sombrio (mantido) */
 .register-button-dark {
   background: linear-gradient(180deg, var(--color-emerald), var(--color-emerald-dark));
   box-shadow: 0 6px 0 var(--color-purple-arcane), 0 0 20px rgba(0, 160, 128, 0.5);
@@ -336,28 +266,13 @@ body.threat-level-letal #threatLevel { box-shadow: 0 0 15px rgba(144, 12, 63, 0.
   overflow: hidden;
 }
 
-.register-button-dark::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-  transition: all 0.5s ease;
-}
-
-.register-button-dark:hover::before {
-  left: 100%;
-}
-
 .register-button-dark:hover {
   background: linear-gradient(180deg, var(--color-emerald-dark), var(--color-emerald));
   box-shadow: 0 4px 0 var(--color-purple-arcane), 0 0 25px rgba(0, 160, 128, 0.7);
   transform: translateY(2px);
 }
 
-/* Animação de Carregamento Sombria */
+/* Animação de Carregamento Sombria (mantido) */
 .loading-circle-dark {
   width: 50px;
   height: 50px;
@@ -377,30 +292,18 @@ body.threat-level-letal #threatLevel { box-shadow: 0 0 15px rgba(144, 12, 63, 0.
   100% { box-shadow: 0 0 15px var(--color-emerald-light), 0 0 30px var(--color-purple-arcane-light); }
 }
 
-/* Resultado */
+/* Resultado (mantido) */
 #resultado {
   border-top: 2px solid var(--color-gray-metal);
 }
 
 #dadosSalvos {
-  background-color: rgba(var(--color-emerald-dark), 0.1); /* Fundo verde translúcido */
+  background-color: rgba(var(--color-emerald-dark), 0.1); 
   border: 1px solid var(--color-emerald-dark);
   box-shadow: 0 0 15px rgba(0, 160, 128, 0.3);
 }
 
-/* Mensagem de Erro Rúnica (Exemplo de estilo para um alert customizado, não o default alert) */
-.error-rune {
-    font-family: 'MedievalSharp', cursive;
-    color: var(--color-red-rune);
-    text-shadow: 0 0 8px var(--color-red-rune);
-    animation: pulse-red 1s infinite alternate;
-}
-@keyframes pulse-red {
-    0% { opacity: 1; }
-    100% { opacity: 0.7; }
-}
-
-/* Selo de sucesso (a ser animado via JS) */
+/* Selo de sucesso (mantido) */
 .success-seal {
     position: absolute;
     width: 150px;
@@ -408,7 +311,7 @@ body.threat-level-letal #threatLevel { box-shadow: 0 0 15px rgba(144, 12, 63, 0.
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%) scale(0);
-    background-image: url('logo.png'); /* Sua logo como selo */
+    background-image: url('logo.png'); 
     background-size: contain;
     background-repeat: no-repeat;
     opacity: 0;
