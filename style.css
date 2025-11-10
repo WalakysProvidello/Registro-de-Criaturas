@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=MedievalSharp&family=Cinzel+Decorative:wght@400;700&display=swap');
+
+/* Fundo Aprimorado */
+body {
+  background: radial-gradient(circle at center, #181105, #0a0601 90%);
+  background-image: url('https://www.transparenttextures.com/patterns/paper-fibers.png'); 
+  color: #fdf6e3;
+  font-family: 'Cinzel Decorative', serif;
+}
+
+/* Borda e Sombra do Título */
+.title-glow {
+  text-shadow: 0 0 18px #ffebc9, 0 0 40px #b89650;
+}
+
+/* Contêiner de Pergaminho Aprimorado */
+.parchment {
+  background: rgba(30, 24, 15, 0.95);
+  backdrop-filter: blur(5px);
+  border: 3px double #d4af37; /* Borda dupla dourada */
+  box-shadow: 0 0 50px rgba(255, 223, 150, 0.5), inset 0 0 20px rgba(0, 0, 0, 0.4); 
+}
+
+/* Estilo de texto para campos e labels */
+label, #dadosSalvos p {
+  font-family: 'MedievalSharp', cursive;
+  color: #ffefc9;
+}
+
+/* Estilo dos Inputs */
+input[type="text"], input[type="number"], select {
+  background-color: rgba(10, 8, 4, 0.9);
+  border: 1px solid #d4af37;
+  color: #fdf6e3;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+input:focus, select:focus {
+  border-color: #ffe082;
+  box-shadow: 0 0 8px rgba(255, 223, 150, 0.6);
+}
+
+/* Estilo do Botão de Envio */
+.register-button {
+  background: linear-gradient(180deg, #d4af37, #b89650);
+  box-shadow: 0 5px 0 #8b6e3f;
+  transition: all 0.1s ease;
+  font-family: 'Cinzel Decorative', serif;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #1a1a1a;
+}
+
+.register-button:hover {
+  background: linear-gradient(180deg, #b89650, #d4af37);
+  box-shadow: 0 3px 0 #8b6e3f;
+  transform: translateY(2px);
+}
+
+/* Linha Divisora Aprimorada */
+.arcane-divider {
+  height: 2px;
+  background: linear-gradient(to right, rgba(0,0,0,0), #d4af37, rgba(0,0,0,0));
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 0 10px rgba(255, 223, 150, 0.4);
+}
+
+/* Detalhe do Preview da Imagem */
+.image-preview-ring {
+  border: 3px dashed #d4af37;
+  padding: 4px;
+  background: rgba(40, 32, 18, 0.7);
+}
+
+/* Animação de Carregamento */
+.loading-circle {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #ffefc9;
+  border-top-color: #d4af37;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 0 auto;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
